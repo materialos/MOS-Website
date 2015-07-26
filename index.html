@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="theme-color" content="#512da8">
+		<title>MaterialOS</title>
+		<link rel="icon" href="/img/favicon.ico">
+		<link rel="stylesheet" target="_blank" href="/css/materialdesignicons.min.css"></link>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="/css/styles.css">
+	</head>
+	<body>
+		<!-- Modal Structure -->
+		<div id="upload" class="modal bottom-sheet">
+			<span id="close" class="modal-close"><i class="material-icons noselect">close</i></span>
+			<form action="upload.php" method="post" id="uploadForm" enctype="multipart/form-data">
+			<div class="modal-content">
+				<h4 onclick="document.getElementById('filesToUpload').click();" class="noselect">Upload to MaterialOS/Icons</h4>
+				<p onclick="document.getElementById('filesToUpload').click();" class="noselect">Input your name into "Author" and add your icon files (.ai, .psd, .sketch, .svg, .xcf, .png). You can upload as many as you like, but unfortunately your system dosn't allow for cross-folder uploading. All icons will be inputted in a pull request for you at <a href="https://github.com/materialos/Icons/pulls">MaterialOS/Icons - Pulls</a> within a minute for review. File an <a href="https://github.com/materialos/Icons/issues/new">Issue</a> if this doesn't occur. By clicking "Agree & Upload you are verifing that all uploaded work is yours and you acknowledge that your work will be lincensed under <a href="/license">our license</a>.</p>
+				<div class="row valign-wrapper">
+					<div class="input-field col s6 valign">
+						<input type="text" name="author" id="author">
+						<label for="author">Author</label>
+					</div>
+					<div class="input-field col s6 valign">
+						<input type="text" name="notes" id="notes">
+						<label for="notes">Notes</label>
+					</div>
+				</div>
+				<div class="row valign-wrapper" onclick="document.getElementById('filesToUpload').click();">
+					<div class="valign">
+						<label>Files to Upload</label>
+						<div id="output"></div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<span class="modal-action modal-close waves-effect waves-green btn-flat" onclick="document.getElementById('uploadForm').submit();">Agree & Upload</span>
+				<span class="file-field input-field"><span class="modal-action btn-flat waves-effect"><span>Pick Files</span><input type="file" name="filesToUpload[]" onchange="loadFile(event)" id="filesToUpload" multiple/></span></span>
+			</div>
+		</div>
+		</form>
+
+		<!-- Main -->
+		<div class="main">
+		<div class="header mosparallax" id="header">
+			<div class="tabs noselect">
+				<span class="tab">Home</span>
+				<span class="tab">Icons</span>
+				<span class="tab">License</span>
+				<span class="tab">More</span>
+			</div>
+			<div class="logo-container animated fadeInUp">
+				<div class="logo-card card full-width">
+					<div class="logo noselect">MATERIAL OPEN SOURCE</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- <div class="mosparallax-clear"></div> -->
+
+		<div class="icons mosparallax" id="icons">
+			<div class="card full-width row">
+				<div class="container">
+					<div class="col s3">
+						<img src="/img/ai.png">
+					</div>
+					<div class="col s9">
+						<div class="text-area">
+							<p></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<!-- FAB -->
+		<a class="btn-floating btn-large waves-effect waves-light red modal-trigger fab tooltipped" href="#upload" data-position="left" data-delay="50" data-tooltip="Upload to MOS/Icons"><i class="material-icons">add</i></a>
+		
+		<!-- Scripts -->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+		<script src="/js/script.js"></script>
+	</body>
+</html>
