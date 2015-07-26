@@ -1,0 +1,207 @@
+/* Temp Override */
+.tabs {
+	display: none;
+}
+
+/* Global Styles */
+html, body {
+	height:100%;
+}
+
+/* Uploader Bottom Sheet */
+#output img {
+	width: 48px;
+}
+#upload {
+	max-height: 100%;
+}
+#close {
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+}
+#close > .material-icons {
+	top: 8px;
+	right: 8px;
+	position: absolute;
+}
+@media (min-width: 800px) {
+	#upload {
+		max-width: 80%;
+		margin: 0 auto;
+		border-radius: 2px
+	}
+}
+
+/* Material Global */
+.fab {
+	position: fixed;
+	bottom: 16px;
+	right:16px;
+}
+/*.main {
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}*/
+.full-width {
+	border-radius: 0;
+	margin: 0;
+	width: 100%
+}
+
+/* MOS Logo */
+.logo-container {
+	display: flex;
+	justify-content: center;
+	height: 100%;
+}
+.logo-card {
+	align-self: center;
+	width: 100%;
+}
+.logo {
+	font-weight: 900;
+	font-size: 100px;
+	color: #1e88e5;
+	text-align: center;
+}
+@media (max-width: 1200px) {
+	.logo {
+		font-size: 72px;
+	}
+}
+@media (max-width: 850px) {
+	.logo {
+		font-weight: 800;
+		font-size: 54px;
+	}
+}
+@media (max-width: 650px) {
+	.logo {
+		font-size: 48px;
+	}
+}
+@media (max-width: 350px) {
+	.logo {
+		font-size: 28px;
+		font-weight: 700;
+	}
+}
+
+/* MOS Parallax */
+.header {
+	background: url('/img/background.png') no-repeat center center fixed;
+}
+.icons {
+	background: url('/img/largeshowcase-dark.png') no-repeat center center fixed;
+}
+.mosparallax-clear {
+	height: 100%;
+	width: 100%;
+}
+.mosparallax {
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+/* No Select */
+.noselect {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: default;
+}
+
+/* Material Ease Animation (CSS and JS)
+Copyright: Kupletsky Sergey
+URL: http://codepen.io/zavoloklom/pen/Jbrho */
+.display-animation > * {
+	-webkit-transform: scale(0);
+	-ms-transform: scale(0);
+	-o-transform: scale(0);
+	transform: scale(0);
+}
+.display-animation > .animated {
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+	-o-transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+	transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+}
+.no-js .display-animation > * {
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+}
+.animated {
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+
+/* 1 Second Ease Fade In Up*/
+@-webkit-keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(20px);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+	}
+}
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+.fadeInUp {
+	-webkit-animation-name: fadeInUp;
+	animation-name: fadeInUp;
+}
+
+/* 0.5 Second Ease Fade Out Up */
+.animated {
+	-webkit-animation-duration: 0.5s;
+	animation-duration: 0.5s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+@-webkit-keyframes fadeOutUp {
+	0% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: translateY(-20px);
+	}
+}
+@keyframes fadeOutUp {
+	0% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+}
+.fadeOutUp {
+	-webkit-animation-name: fadeOutUp;
+	animation-name: fadeOutUp;
+}
