@@ -39,6 +39,5 @@ for ($i = 0; $i < count($_FILES['filesToUpload']['name']); $i++) {
 		}
 	}
 }
-chdir('public_html/');
-echo shell_exec("./gitcreatepr.sh " . $author . " " . $notes . " 2>&1");
+shell_exec("./gitcreatepr.sh \"" . $author . "\" \"" . $notes . "\" >> output.txt");
 ?>

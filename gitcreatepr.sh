@@ -7,7 +7,7 @@ note=$2
 nospaceauthor=${author//[[:blank:]]/}
 
 
-mkdir $author
+mkdir "$author"
 cd "./$author/"
 mkdir Vector Raster "Raster Editor"
 mv *.ai ./Vector
@@ -20,7 +20,7 @@ mv *.png ./Raster
 cd ..
 
 tyme=`date +%Y%m%d%H%M%S`
-git checkout -b $author$tyme
+git checkout -b $nospaceauthor$tyme
 git add *
 git commit -m "Added some icons by $author! Thanks $author!"
 git push --set-upstream origin $nospaceauthor$tyme
