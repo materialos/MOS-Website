@@ -1,6 +1,6 @@
 # https://github.com/github/hub
 # Must be ssh cloned
-cd /www/var/materialos.com/public_html/uploads/icons/
+cd /var/www/materialos.com/public_html/uploads/icons/
 
 author=$1
 note=$2
