@@ -16,10 +16,41 @@ function loadFile(event){
 	};
 };
 
+// Nav
+// function nav (num) {
+
+// }
+
+// Waypoints for Icons Card
+var inview = new Waypoint.Inview({
+  element: $('#icons-card')[0],
+  enter: function(direction) {
+    // Materialize.toast('Icons: Enter triggered with direction ' + direction, 4000);
+  },
+  entered: function(direction) {
+	element = document.getElementById('icons-card');
+	element.classList.remove("not-animated-yet");
+	element.classList.remove("fadeInUp-2");
+	element.offsetWidth = element.offsetWidth;
+	element.classList.add("fadeInUp-2");
+	this.destroy();
+    // Materialize.toast('Icons: Entered triggered with direction ' + direction, 4000);
+  },
+  exit: function(direction) {
+    // Materialize.toast('Icons: Exit triggered with direction ' + direction, 4000);
+  },
+  exited: function(direction) {
+    // Materialize.toast('Icons: Exited triggered with direction ' + direction, 4000);
+  }
+})
+
 // MaterializeCSS Setup
 $(document).ready(function(){
 	$('.modal-trigger').leanModal();
 });
+// $(document).ready(function(){
+// 	$('ul.tabs').tabs();
+// });
 
 /* Material Ease Animation (CSS and JS)
 Copyright: Kupletsky Sergey
