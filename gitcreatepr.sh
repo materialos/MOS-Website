@@ -13,7 +13,7 @@ else
 mkdir "$author"
 fi
 
-cd "./$author/"
+cd ./"$author"/
 
 if [ -f *.ai ]; then
 mkdir Vector
