@@ -35,6 +35,7 @@ for ($i = 0; $i < count($_FILES['filesToUpload']['name']); $i++) {
 	} else {
 		if (move_uploaded_file($_FILES["filesToUpload"]["tmp_name"][$i], $target_file)) {
 			echo "The file ". basename( $_FILES["filesToUpload"]["name"]). " has been uploaded.";
+			shell_exec("bash corbinsdickprogram.sh " + $authorname + $note);
 		} else {
 			echo "Sorry, there was an error uploading your file.";
 		}
