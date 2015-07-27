@@ -1,7 +1,4 @@
 /* Temp Override */
-.tabs {
-	display: none;
-}
 
 /* Global Styles */
 html, body {
@@ -34,19 +31,55 @@ html, body {
 }
 
 /* Material Global */
-.fab {
+.singlefab {
 	position: fixed;
-	bottom: 16px;
-	right:16px;
+	bottom: 24px;
+	right: 24px;
 }
-/*.main {
-	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-}*/
+.container {
+	width: 85% !important;
+}
+@media (max-width: 600px) {
+	.container {
+		width: 90% !important;
+	}
+}
 .full-width {
 	border-radius: 0;
 	margin: 0;
 	width: 100%
 }
+.card-full-width-img {
+	max-width: 100%
+}
+@media (max-width: 972px) {
+	.card-full-width-img {
+		display: none;
+	}
+	.card-full-width-text {
+		width: 100% !important;
+	}
+}
+.card-action > .right {
+	margin: 20px 0;
+}
+.card .card-action {
+	padding: 0;
+}
+
+/* Tabs
+.tabs {
+    background-color: rgba(255, 255, 255, 0.1);
+	text-align: center;
+}
+.tabs .tab {
+	padding: 0 7.5%;
+	display: initial;
+    float: initial;
+    width: initial;
+    cursor: pointer;
+    color: #fafafa;
+} */
 
 /* MOS Logo */
 .logo-container {
@@ -87,6 +120,11 @@ html, body {
 	}
 }
 
+/* Icons Card */
+#icons-card {
+	margin-top: 10%;
+}
+
 /* MOS Parallax */
 .header {
 	background: url('/img/background.png') no-repeat center center fixed;
@@ -115,6 +153,11 @@ html, body {
 	-ms-user-select: none;
 	user-select: none;
 	cursor: default;
+}
+
+/* Pre Animation */
+.not-animated-yet {
+	visibility: hidden;
 }
 
 /* Material Ease Animation (CSS and JS)
@@ -174,8 +217,40 @@ URL: http://codepen.io/zavoloklom/pen/Jbrho */
 	animation-name: fadeInUp;
 }
 
+/* 2 Second Ease Fade In Up */
+.animated-2 { 
+    -webkit-animation-duration: 2s; 
+    animation-duration: 2s; 
+    -webkit-animation-fill-mode: both; 
+    animation-fill-mode: both; 
+} 
+@-webkit-keyframes fadeInUp-2 { 
+    0% { 
+        opacity: 0; 
+        -webkit-transform: translateY(100vh); 
+    } 
+    100% { 
+        opacity: 1; 
+        -webkit-transform: translateY(0); 
+    } 
+} 
+@keyframes fadeInUp-2 { 
+    0% { 
+        opacity: 0; 
+        transform: translateY(100vh); 
+    } 
+    100% { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+} 
+.fadeInUp-2 { 
+    -webkit-animation-name: fadeInUp-2; 
+    animation-name: fadeInUp-2; 
+}
+
 /* 0.5 Second Ease Fade Out Up */
-.animated {
+.animated-05 {
 	-webkit-animation-duration: 0.5s;
 	animation-duration: 0.5s;
 	-webkit-animation-fill-mode: both;

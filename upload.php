@@ -3,7 +3,7 @@ for ($i = 0; $i < count($_FILES['filesToUpload']['name']); $i++) {
 	$author = $_POST["author"];
 	$notes = $_POST["notes"];
 
-	$target_dir = "uploads/{$author}/";
+	$target_dir = "uploads/icons/{$author}/";
 	if (!is_dir($target_dir)) {
 		if (!mkdir($target_dir, 0755, true)) {
 			die('Failed to create folders.');
@@ -35,10 +35,13 @@ for ($i = 0; $i < count($_FILES['filesToUpload']['name']); $i++) {
 	} else {
 		if (move_uploaded_file($_FILES["filesToUpload"]["tmp_name"][$i], $target_file)) {
 			echo "The file ". basename( $_FILES["filesToUpload"]["name"]). " has been uploaded.";
-			shell_exec("bash corbinsdickprogram.sh " + $authorname + $note);
 		} else {
 			echo "Sorry, there was an error uploading your file.";
 		}
 	}
+}
+if ($uploadOk = 1;) {
+	$output = shell_exec("bash corbinsdickprogram.sh " + $author + $notes);
+	echo "<p>$output</p>";
 }
 ?>
