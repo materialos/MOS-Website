@@ -5,8 +5,8 @@ cd /var/www/materialos.com/public_html/uploads/icons/
 author=$1
 note=$2
 
-mkdir $author
-cd ./$author/
+#mkdir $author
+cd "./$author/"
 mkdir Vector Raster "Raster Editor"
 mv *.ai ./Vector
 mv *.SVG ./Vector
@@ -15,10 +15,10 @@ mv *.XCF ./"Raster Editor"
 mv *.PSD ./"Raster Editor"
 mv *.png ./Raster
 
-cd .. 
+cd ..
 
 tyme=`date +%Y%m%d%H%M%S`
-git checkout -b $author$tyme 
+git checkout -b $author$tyme
 git add *
 git commit -m "Added some icons by $author! Thanks $author!"
 git push --set-upstream origin $author$tyme

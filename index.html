@@ -17,7 +17,7 @@
 			<form action="upload.php" method="post" id="uploadForm" enctype="multipart/form-data">
 			<div class="modal-content">
 				<h4 onclick="document.getElementById('filesToUpload').click();" class="noselect">Upload to MaterialOS/Icons</h4>
-				<p onclick="document.getElementById('filesToUpload').click();" class="noselect">Input your name into "Author" and add your icon files (.ai, .psd, .sketch, .svg, .xcf, .png). You can upload as many as you like, but unfortunately your system dosn't allow for cross-folder uploading. All icons will be inputted in a pull request for you at <a href="https://github.com/materialos/Icons/pulls">MaterialOS/Icons - Pulls</a> within a minute for review. File an <a href="https://github.com/materialos/Icons/issues/new">Issue</a> if this doesn't occur. By clicking "Agree & Upload you are verifing that all uploaded work is yours and you acknowledge that your work will be lincensed under <a href="/license">our license</a>.</p>
+				<p onclick="document.getElementById('filesToUpload').click();" class="noselect">Input your name into "Author" and add your icon files (.ai, .psd, .sketch, .svg, .xcf, .png). You can upload as many as you like, but unfortunately your system dosn't allow for cross-folder uploading. All icons will be inputted in a pull request for you at <a href="https://github.com/materialos/Icons/pulls">MaterialOS/Icons - Pulls</a> within a minute for review. File an <a href="https://github.com/materialos/Icons/issues/new">Issue</a> if this doesn't occur. By clicking "Agree &amp; Upload you are verifing that all uploaded work is yours and you acknowledge that your work will be lincensed under <a href="/license">our license</a>.</p>
 				<div class="row valign-wrapper">
 					<div class="input-field col s6 valign">
 						<input type="text" name="author" id="author">
@@ -36,7 +36,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<span class="modal-action modal-close waves-effect waves-green btn-flat" onclick="document.getElementById('uploadForm').submit();">Agree & Upload</span>
+				<span class="modal-action modal-close waves-effect waves-green btn-flat" onclick="document.getElementById('uploadForm').submit();">Agree &amp; Upload</span>
 				<span class="file-field input-field"><span class="modal-action btn-flat waves-effect"><span>Pick Files</span><input type="file" name="filesToUpload[]" onchange="loadFile(event)" id="filesToUpload" multiple/></span></span>
 			</div>
 		</div>
@@ -96,10 +96,8 @@
 				<i class="large material-icons">add</i>
 			</a>
 			<ul>
-				<li><a class="btn-floating red"><i class="material-icons">insert_chart</i></i></a></li>
-				<li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-				<li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-				<li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+				<li><a class="btn-floating blue modal-trigger"><i class="material-icons">insert_chart</i></a></li>
+				<li><a class="btn-floating teal darken-1"><i class="material-icons">format_quote</i></a></li>
 			</ul>
 		</div>
 		<a class="btn-floating btn-large waves-effect waves-light red modal-trigger fab tooltipped" href="#upload" data-position="left" data-delay="50" data-tooltip="Upload to MOS/Icons"><i class="material-icons">add</i></a>
