@@ -8,7 +8,7 @@ note=$2
 nospaceauthor=${author//[[:blank:]]/}
 
 if [ -d "$author" ]; then
-;
+:
 else
 mkdir "$author"
 fi
