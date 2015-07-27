@@ -1,3 +1,4 @@
+#!/bin/bash
 # https://github.com/github/hub
 # Must be ssh cloned
 cd /var/www/materialos.com/public_html/uploads/icons/
