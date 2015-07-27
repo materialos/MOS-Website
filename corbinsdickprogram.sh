@@ -1,23 +1,31 @@
 # https://github.com/github/hub
 # Must be ssh cloned
+cd /www/var/materialos.com/public_html/uploads/icons/
 
 author=$1
 note=$2
 
 git checkout master
+git fetch --all
+git reset --hard origin/master
+git pull
 git remote add upstream https://github.com/materialos/Icons/
 git fetch upstream
 git checkout master
 git merge upstream/master
 git push
 
-git pull
 
-cd /uploads/icons/$author/
+cd ./$author/
 mkdir Vector Raster "Raster Editor"
-mv *.ai  *.SVG *.sketch ./Vector
-mv *.XCF *.PSD ./"Raster Editor"
+mv *.ai ./Vector
+mv *.SVG ./Vector
+mv *.sketch ./Vector
+mv *.XCF ./"Raster Editor"
+mv *.PSD ./"Raster Editor"
 mv *.png ./Raster
+
+cd .. 
 
 tyme=`date +%Y%m%d%H%M%S`
 git checkout -b $author$tyme 
