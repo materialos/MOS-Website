@@ -16,33 +16,33 @@ fi
 cd "./$author/"
 
 if [ -f *.ai ]; then
-mv *.ai ./Vector
 mkdir Vector
+mv *.ai ./Vector
 fi
 
 if [ -f *.svg ]; then
-mv *.svg ./Vector
 mkdir Vector
+mv *.svg ./Vector
 fi
 
 if [ -f *.sketch ]; then
-mv *.sketch ./Vector
 mkdir Vector
+mv *.sketch ./Vector
 fi
 
 if [ -f *.xcf ]; then
-mv *.xcf ./"Raster Editor"
 mkdir "Raster Editor"
+mv *.xcf ./"Raster Editor"
 fi
 
 if [ -f *.psd ]; then
-mv *.psd ./"Raster Editor"
 mkdir "Raster Editor"
+mv *.psd ./"Raster Editor"
 fi
 
 if [ -f *.png ]; then
-mv *.png ./Raster
 mkdir Raster
+mv *.png ./Raster
 fi
 
 cd ..
