@@ -5,6 +5,7 @@ cd /var/www/materialos.com/public_html/uploads/icons/
 author=$1
 note=$2
 
+mkdir $author
 cd ./$author/
 mkdir Vector Raster "Raster Editor"
 mv *.ai ./Vector
