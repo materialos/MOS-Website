@@ -6,16 +6,43 @@ author=$1
 note=$2
 nospaceauthor=${author//[[:blank:]]/}
 
-
+if [ -d "$author" ]; then
+;
+else
 mkdir "$author"
+fi
+
 cd "./$author/"
-mkdir Vector Raster "Raster Editor"
+
+if [ -f *.ai ]; then
 mv *.ai ./Vector
-mv *.SVG ./Vector
+mkdir Vector
+fi
+
+if [ -f *.svg ]; then
+mv *.svg ./Vector
+mkdir Vector
+fi
+
+if [ -f *.sketch ]; then
 mv *.sketch ./Vector
-mv *.XCF ./"Raster Editor"
-mv *.PSD ./"Raster Editor"
+mkdir Vector
+fi
+
+if [ -f *.xcf ]; then
+mv *.xcf ./"Raster Editor"
+mkdir "Raster Editor"
+fi
+
+if [ -f *.psd ]; then
+mv *.psd ./"Raster Editor"
+mkdir "Raster Editor"
+fi
+
+if [ -f *.png ]; then
 mv *.png ./Raster
+mkdir Raster
+fi
 
 cd ..
 
