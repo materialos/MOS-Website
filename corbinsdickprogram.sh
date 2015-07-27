@@ -5,17 +5,6 @@ cd /www/var/materialos.com/public_html/uploads/icons/
 author=$1
 note=$2
 
-git checkout master
-git fetch --all
-git reset --hard origin/master
-git pull
-git remote add upstream https://github.com/materialos/Icons/
-git fetch upstream
-git checkout master
-git merge upstream/master
-git push
-
-
 cd ./$author/
 mkdir Vector Raster "Raster Editor"
 mv *.ai ./Vector
@@ -35,3 +24,13 @@ git push --set-upstream origin $author$tyme
 hub pull-request -m "Added some icons by $author! Thanks $author!
 
 $note" -b materialos:master -h autocontribute:$author$tyme
+
+git checkout master
+git fetch --all
+git reset --hard origin/master
+git pull
+git remote add upstream https://github.com/materialos/Icons/
+git fetch upstream
+git checkout master
+git merge upstream/master
+git push
