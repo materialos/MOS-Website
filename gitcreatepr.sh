@@ -4,8 +4,10 @@ cd /var/www/materialos.com/public_html/uploads/icons/
 
 author=$1
 note=$2
+nospaceauthor=${$author//[[:blank:]]/}
 
-#mkdir $author
+
+mkdir $author
 cd "./$author/"
 mkdir Vector Raster "Raster Editor"
 mv *.ai ./Vector
@@ -21,10 +23,10 @@ tyme=`date +%Y%m%d%H%M%S`
 git checkout -b $author$tyme
 git add *
 git commit -m "Added some icons by $author! Thanks $author!"
-git push --set-upstream origin $author$tyme
+git push --set-upstream origin $nospaceauthor$tyme
 hub pull-request -m "Added some icons by $author! Thanks $author!
 
-$note" -b materialos:master -h autocontribute:$author$tyme
+$note" -b materialos:master -h autocontribute:$nospaceauthor$tyme
 
 git checkout master
 git fetch --all
