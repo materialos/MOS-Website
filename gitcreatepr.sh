@@ -4,7 +4,7 @@ cd /var/www/materialos.com/public_html/uploads/icons/
 
 author=$1
 note=$2
-nospaceauthor=${$author//[[:blank:]]/}
+nospaceauthor=${author//[[:blank:]]/}
 
 
 mkdir $author
