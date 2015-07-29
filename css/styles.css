@@ -30,6 +30,39 @@ html, body {
 	}
 }
 
+/* Upload Finished */
+.console {
+	display: none;
+	height: 500px;
+	max-height: 50vh;
+	overflow: auto;
+	background-color: #202020;
+	border-radius: 4px;
+}
+#console {
+	padding: 20px;
+	color: #fff;
+}
+.upfin-container {
+	display: flex;
+	justify-content: center;
+	height: 100%;
+}
+.upfin {
+	width: 90%;
+	align-self: center;
+	border-radius: 4px;
+	margin: 0;
+}
+@media (max-width: 600px) {
+	.upfin {
+		width: 100% !important;
+	}
+}
+#description {
+	margin-bottom: 20px;
+}
+
 /* Material Global */
 .singlefab {
 	position: fixed;
@@ -66,20 +99,6 @@ html, body {
 .card .card-action {
 	padding: 0;
 }
-
-/* Tabs
-.tabs {
-    background-color: rgba(255, 255, 255, 0.1);
-	text-align: center;
-}
-.tabs .tab {
-	padding: 0 7.5%;
-	display: initial;
-    float: initial;
-    width: initial;
-    cursor: pointer;
-    color: #fafafa;
-} */
 
 /* MOS Logo */
 .logo-container {
@@ -219,34 +238,34 @@ URL: http://codepen.io/zavoloklom/pen/Jbrho */
 
 /* 2 Second Ease Fade In Up */
 .animated-2 { 
-    -webkit-animation-duration: 2s; 
-    animation-duration: 2s; 
-    -webkit-animation-fill-mode: both; 
-    animation-fill-mode: both; 
+	-webkit-animation-duration: 2s; 
+	animation-duration: 2s; 
+	-webkit-animation-fill-mode: both; 
+	animation-fill-mode: both; 
 } 
 @-webkit-keyframes fadeInUp-2 { 
-    0% { 
-        opacity: 0; 
-        -webkit-transform: translateY(100vh); 
-    } 
-    100% { 
-        opacity: 1; 
-        -webkit-transform: translateY(0); 
-    } 
+	0% { 
+		opacity: 0; 
+		-webkit-transform: translateY(100vh); 
+	} 
+	100% { 
+		opacity: 1; 
+		-webkit-transform: translateY(0); 
+	} 
 } 
 @keyframes fadeInUp-2 { 
-    0% { 
-        opacity: 0; 
-        transform: translateY(100vh); 
-    } 
-    100% { 
-        opacity: 1; 
-        transform: translateY(0); 
-    } 
+	0% { 
+		opacity: 0; 
+		transform: translateY(100vh); 
+	} 
+	100% { 
+		opacity: 1; 
+		transform: translateY(0); 
+	} 
 } 
 .fadeInUp-2 { 
-    -webkit-animation-name: fadeInUp-2; 
-    animation-name: fadeInUp-2; 
+	-webkit-animation-name: fadeInUp-2; 
+	animation-name: fadeInUp-2; 
 }
 
 /* 0.5 Second Ease Fade Out Up */
