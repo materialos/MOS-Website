@@ -7,42 +7,52 @@ author=$1
 note=$2
 nospaceauthor=${author//[[:blank:]]/}
 
-if [ -d "$author" ]; then
-:
-else
-mkdir "$author"
+if [ ! -d "$author" ]; then
+	mkdir "$author"
 fi
 
 cd ./"$author"/
 
 if [ -f *.ai ]; then
-mkdir Vector
-mv *.ai ./Vector
+	if [ ! -d "Vector" ]; then
+		mkdir Vector
+	fi
+	mv *.ai ./Vector
 fi
 
 if [ -f *.svg ]; then
-mkdir Vector
-mv *.svg ./Vector
+	if [ ! -d "Vector" ]; then
+		mkdir Vector
+	fi
+	mv *.svg ./Vector
 fi
 
 if [ -f *.sketch ]; then
-mkdir Vector
-mv *.sketch ./Vector
+	if [ ! -d "Vector" ]; then
+		mkdir Vector
+	fi
+	mv *.sketch ./Vector
 fi
 
 if [ -f *.xcf ]; then
-mkdir "Raster Editor"
-mv *.xcf ./"Raster Editor"
+	if [ ! -d "Raster Editor" ]; then
+		mkdir "Raster Editor"
+	fi
+	mv *.xcf ./"Raster Editor"
 fi
 
 if [ -f *.psd ]; then
-mkdir "Raster Editor"
-mv *.psd ./"Raster Editor"
+	if [ ! -d "Raster Editor" ]; then
+		mkdir "Raster Editor"
+	fi
+	mv *.psd ./"Raster Editor"
 fi
 
 if [ -f *.png ]; then
-mkdir Raster
-mv *.png ./Raster
+	if [ ! -d "Raster" ]; then
+		mkdir Raster
+	fi
+	mv *.png ./Raster
 fi
 
 cd ..

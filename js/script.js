@@ -16,11 +16,6 @@ function loadFile(event){
 	};
 };
 
-// Nav
-// function nav (num) {
-
-// }
-
 // Waypoints for Icons Card
 var inview = new Waypoint.Inview({
   element: $('#icons-card')[0],
@@ -48,9 +43,6 @@ var inview = new Waypoint.Inview({
 $(document).ready(function(){
 	$('.modal-trigger').leanModal();
 });
-// $(document).ready(function(){
-// 	$('ul.tabs').tabs();
-// });
 
 /* Material Ease Animation (CSS and JS)
 Copyright: Kupletsky Sergey
