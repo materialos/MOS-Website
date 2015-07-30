@@ -105,6 +105,9 @@ html, body {
 .round-4 {
 	border-radius: 4px;
 }
+#toast-container {
+	z-index: 1004;
+}
 
 /* MOS Logo */
 .logo-container {

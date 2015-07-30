@@ -1,3 +1,16 @@
+// Set Upload Fields From URL
+if (/\?/.test(document.URL)) {
+	params = decodeURI(document.URL).match(/\?repo=(Icons|Illustrations|Concepts)&author=(.+)/i);
+	repoParam = params[1];
+	authorParam = params[2];
+
+	document.getElementById('repo').value = repoParam.toLowerCase();
+	document.getElementById('author').value = authorParam;
+
+	$('#upload').openModal();
+};
+
+
 // Upload Preview Function
 function loadFile(event){
 	document.getElementById('output').innerHTML = "";
@@ -15,6 +28,36 @@ function loadFile(event){
 		document.getElementById('output').appendChild(output);
 	};
 };
+
+// Suggest Author Functions
+function authorSuggest (value) {
+	authors = "Alex Mueller (Lollydrop), Anas Khan, Brian Medina, Christopher Bravata, Corbin Crutchley (crutchcorn), Daniel Ciao (plusCubed), Daniel Hickman, Eduardo Pratti (KMZ Icons), Gabriel Zegarra (Gaigzean), Greg Ives (Grives), Jahir Fiquitiva & Corbin Crutchley (crutchcorn), Jireh Mark Morilla, Micheal Cook (Cookicons), Niko Pennanen, Oscar E, Patryk Goworowski, Sky Konig, Vukasin Andelkovic, Wayne Kosimoto & Corbin Crutchley (crutchcorn), Wayne Kosimoto, Zachary Pierson (zangent), createme";
+	valuear = value.split(" ");
+	sug = [];
+	for (var i = valuear.length - 1; i >= 0; i--) {
+		authorregex = new RegExp(valuear[i], "i");
+		authorregexmatch = new RegExp("(.+), ([\\s\\w\\(\\)]*" + valuear[i] + "[\\s\\w\\(\\)]*)(?!(?!,),)(.+)", "i");
+		if (authorregex.test(authors)) {
+			sug.push(authors.replace(authorregexmatch, "$2"));
+		}
+	};
+	matched = false;
+	for (var i = sug.length - 1; i >= 0; i--) {
+		if (sug[i].length == authors.length) {
+			// No Match for that Word
+		} else {
+			// Matched
+			matched = true;
+			Materialize.toast('<span onclick="setAuthor(\'' + sug[i] + '\');">Do you mean: ' + sug[i] + '</span>', 10000,'',function(){Materialize.toast('<span>You are creating a new author</span>', 10000);});
+		};
+	};
+	if (matched == false) {
+		Materialize.toast('<span>You are creating a new author</span>', 10000);
+	};
+}
+function setAuthor (author) {
+	document.getElementById('author').value = author;
+}
 
 // Waypoints for Icons Card
 var inview = new Waypoint.Inview({
