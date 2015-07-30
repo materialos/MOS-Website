@@ -31,6 +31,7 @@ function loadFile(event){
 
 // Suggest Author Functions
 function authorSuggest (value) {
+	toastDestroy();
 	authorSet = false;
 	newAuthorToast = false;
 	authors = "Alex Mueller (Lollydrop), Anas Khan, Brian Medina, Christopher Bravata, Corbin Crutchley (crutchcorn), Daniel Ciao (plusCubed), Daniel Hickman, Eduardo Pratti (KMZ Icons), Gabriel Zegarra (Gaigzean), Greg Ives (Grives), Jahir Fiquitiva & Corbin Crutchley (crutchcorn), Jireh Mark Morilla, Micheal Cook (Cookicons), Niko Pennanen, Oscar E, Patryk Goworowski, Sky Konig, Vukasin Andelkovic, Wayne Kosimoto & Corbin Crutchley (crutchcorn), Wayne Kosimoto, Zachary Pierson (zangent), createme";
@@ -51,6 +52,8 @@ function authorSuggest (value) {
 			// Suggestion is the Same as Inputed
 			authorSet = true;
 			matched = true;
+			toastDestroy();
+			return;
 		} else {
 			// Matched
 			matched = true;
@@ -64,6 +67,7 @@ function authorSuggest (value) {
 }
 function setAuthor (author) {
 	document.getElementById('author').value = author;
+	toastDestroy();
 	authorSet = true;
 }
 
@@ -71,7 +75,7 @@ function setAuthor (author) {
 var inview = new Waypoint.Inview({
   element: $('#icons-card')[0],
   enter: function(direction) {
-    // Materialize.toast('Icons: Enter triggered with direction ' + direction, 4000);
+	// Materialize.toast('Icons: Enter triggered with direction ' + direction, 4000);
   },
   entered: function(direction) {
 	element = document.getElementById('icons-card');
@@ -80,13 +84,13 @@ var inview = new Waypoint.Inview({
 	element.offsetWidth = element.offsetWidth;
 	element.classList.add("fadeInUp-2");
 	this.destroy();
-    // Materialize.toast('Icons: Entered triggered with direction ' + direction, 4000);
+	// Materialize.toast('Icons: Entered triggered with direction ' + direction, 4000);
   },
   exit: function(direction) {
-    // Materialize.toast('Icons: Exit triggered with direction ' + direction, 4000);
+	// Materialize.toast('Icons: Exit triggered with direction ' + direction, 4000);
   },
   exited: function(direction) {
-    // Materialize.toast('Icons: Exited triggered with direction ' + direction, 4000);
+	// Materialize.toast('Icons: Exited triggered with direction ' + direction, 4000);
   }
 })
 
@@ -97,6 +101,21 @@ $(document).ready(function(){
 $(document).ready(function() {
 	$('select').material_select();
 });
+
+// Destroy MaterializeCSS Toasts
+function toastDestroy () {
+	var toasts = document.getElementsByClassName('toast');
+	for (var i = toasts.length - 1; i >= 0; i--) {
+		Vel(toasts[i], {"opacity": 0, marginTop: '-40px'}, { duration: 375,
+			easing: 'easeOutExpo',
+			queue: false,
+			complete: function(){
+				// Callback aborted
+				// Removal handled by materialize
+			}
+		});
+	};
+}
 
 /* Material Ease Animation (CSS and JS)
 Copyright: Kupletsky Sergey
