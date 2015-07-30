@@ -21,10 +21,11 @@
 						<div class="console">
 							<p id="console">					
 <?php
+$repo = $_POST["repo"];
 $author = $_POST["author"];
 $notes = $_POST["notes"];
 for ($i = 0; $i < count($_FILES['filesToUpload']['name']); $i++) {
-	$target_dir = "uploads/icons/{$author}/";
+	$target_dir = "uploads/{$repo}/{$author}/";
 	if (!is_dir($target_dir)) {
 		if (!mkdir($target_dir, 0755, true)) {
 			die('Failed to create folders.<br>');
@@ -62,7 +63,7 @@ for ($i = 0; $i < count($_FILES['filesToUpload']['name']); $i++) {
 	}
 }
 if ($uploadOk != 0) {
-	echo nl2br(htmlentities(shell_exec("./gitcreatepr.sh \"" . $author . "\" \"" . $notes . "\" 2>&1")), false);
+	echo nl2br(htmlentities(shell_exec("./gitcreatepr.sh \"" . $author . "\" \"" . $notes . "\" " . $repo . " 2>&1")), false);
 }
 ?>
 							</p>
