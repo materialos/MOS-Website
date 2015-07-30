@@ -31,24 +31,29 @@ function loadFile(event){
 
 // Suggest Author Functions
 function authorSuggest (value) {
+	authorSet = false;
 	authors = "Alex Mueller (Lollydrop), Anas Khan, Brian Medina, Christopher Bravata, Corbin Crutchley (crutchcorn), Daniel Ciao (plusCubed), Daniel Hickman, Eduardo Pratti (KMZ Icons), Gabriel Zegarra (Gaigzean), Greg Ives (Grives), Jahir Fiquitiva & Corbin Crutchley (crutchcorn), Jireh Mark Morilla, Micheal Cook (Cookicons), Niko Pennanen, Oscar E, Patryk Goworowski, Sky Konig, Vukasin Andelkovic, Wayne Kosimoto & Corbin Crutchley (crutchcorn), Wayne Kosimoto, Zachary Pierson (zangent), createme";
 	valuear = value.split(" ");
 	sug = [];
 	for (var i = valuear.length - 1; i >= 0; i--) {
-		authorregex = new RegExp(valuear[i], "i");
-		authorregexmatch = new RegExp("(.+), ([\\s\\w\\(\\)]*" + valuear[i] + "[\\s\\w\\(\\)]*)(?!(?!,),)(.+)", "i");
+		authorregex = new RegExp(valuear[i].replace(/\(/, "\\(").replace(/\)/, "\\)"), "i");
+		authorregexmatch = new RegExp("(.*)(, )?([\\s\\w\\(\\)]*" + valuear[i].replace(/\(/, "\\(").replace(/\)/, "\\)") + "[\\s\\w\\(\\)]*)(?!(?!,),)(.*)", "i");
 		if (authorregex.test(authors)) {
-			sug.push(authors.replace(authorregexmatch, "$2"));
+			sug.push(authors.replace(authorregexmatch, "$3"));
 		}
 	};
 	matched = false;
 	for (var i = sug.length - 1; i >= 0; i--) {
 		if (sug[i].length == authors.length) {
 			// No Match for that Word
+		} else if (sug[i] == value) {
+			// Suggestion is the Same as Inputed
+			authorSet = true;
+			matched = true;
 		} else {
 			// Matched
 			matched = true;
-			Materialize.toast('<span onclick="setAuthor(\'' + sug[i] + '\');">Do you mean: ' + sug[i] + '</span>', 10000,'',function(){Materialize.toast('<span>You are creating a new author</span>', 10000);});
+			Materialize.toast('<span onclick="setAuthor(\'' + sug[i] + '\');">Do you mean: ' + sug[i] + '</span>', 10000,'',function(){if (authorSet == false) {Materialize.toast('<span>You are creating a new author</span>', 10000);};});
 		};
 	};
 	if (matched == false) {
@@ -57,6 +62,7 @@ function authorSuggest (value) {
 }
 function setAuthor (author) {
 	document.getElementById('author').value = author;
+	authorSet = true;
 }
 
 // Waypoints for Icons Card
