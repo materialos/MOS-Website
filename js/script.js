@@ -43,6 +43,9 @@ var inview = new Waypoint.Inview({
 $(document).ready(function(){
 	$('.modal-trigger').leanModal();
 });
+$(document).ready(function() {
+	$('select').material_select();
+});
 
 /* Material Ease Animation (CSS and JS)
 Copyright: Kupletsky Sergey

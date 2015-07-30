@@ -99,6 +99,12 @@ html, body {
 .card .card-action {
 	padding: 0;
 }
+.round-2 {
+	border-radius: 2px;
+}
+.round-4 {
+	border-radius: 4px;
+}
 
 /* MOS Logo */
 .logo-container {
