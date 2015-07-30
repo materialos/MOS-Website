@@ -3,8 +3,17 @@
 # Must be ssh cloned
 
 author=$1
-note=$2
+
+# Remove dots
+author=`echo "${author//./}"`
+
+# Remove slashes
+author=`echo $author | sed 's,/,,g'`
+
 nospaceauthor=${author//[[:blank:]]/}
+
+note=$2
+
 repo=$3
 
 cd "/var/www/materialos.com/public_html/uploads/$repo/"
