@@ -72,7 +72,6 @@ if ($uploadOk != 0) {
 					<div class="card-action">
 						<div class="right">
 							<a class="btn-flat waves-effect grey-text text-darken-2" href="/">Home</a>
-							<a class="btn-flat waves-effect grey-text text-darken-2" target="_blank" id="pr-action">GitHub</a>
 						</div>
 					</div>
 				</div>
