@@ -32,12 +32,13 @@ function loadFile(event){
 // Suggest Author Functions
 function authorSuggest (value) {
 	authorSet = false;
+	newAuthorToast = false;
 	authors = "Alex Mueller (Lollydrop), Anas Khan, Brian Medina, Christopher Bravata, Corbin Crutchley (crutchcorn), Daniel Ciao (plusCubed), Daniel Hickman, Eduardo Pratti (KMZ Icons), Gabriel Zegarra (Gaigzean), Greg Ives (Grives), Jahir Fiquitiva & Corbin Crutchley (crutchcorn), Jireh Mark Morilla, Micheal Cook (Cookicons), Niko Pennanen, Oscar E, Patryk Goworowski, Sky Konig, Vukasin Andelkovic, Wayne Kosimoto & Corbin Crutchley (crutchcorn), Wayne Kosimoto, Zachary Pierson (zangent), createme";
 	valuear = value.split(" ");
 	sug = [];
 	for (var i = valuear.length - 1; i >= 0; i--) {
 		authorregex = new RegExp(valuear[i].replace(/\(/, "\\(").replace(/\)/, "\\)"), "i");
-		authorregexmatch = new RegExp("(.*)(, )?([\\s\\w\\(\\)]*" + valuear[i].replace(/\(/, "\\(").replace(/\)/, "\\)") + "[\\s\\w\\(\\)]*)(?!(?!,),)(.*)", "i");
+		authorregexmatch = new RegExp("(.*)(, |^)([\\s\\w\\(\\)]*" + valuear[i].replace(/\(/, "\\(").replace(/\)/, "\\)") + "[\\s\\w\\(\\)]*)(?!(?!,),)(.*)", "i");
 		if (authorregex.test(authors)) {
 			sug.push(authors.replace(authorregexmatch, "$3"));
 		}
@@ -53,11 +54,12 @@ function authorSuggest (value) {
 		} else {
 			// Matched
 			matched = true;
-			Materialize.toast('<span onclick="setAuthor(\'' + sug[i] + '\');">Do you mean: ' + sug[i] + '</span>', 10000,'',function(){if (authorSet == false) {Materialize.toast('<span>You are creating a new author</span>', 10000);};});
+			Materialize.toast('<span onclick="setAuthor(\'' + sug[i] + '\');">Do you mean: ' + sug[i] + '</span>', 10000,'',function(){if (authorSet == false && newAuthorToast == false) {Materialize.toast('<span>You are creating a new author</span>', 10000);newAuthorToast = true;};});
 		};
 	};
 	if (matched == false) {
 		Materialize.toast('<span>You are creating a new author</span>', 10000);
+		newAuthorToast = true;
 	};
 }
 function setAuthor (author) {
