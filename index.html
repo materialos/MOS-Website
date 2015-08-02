@@ -17,7 +17,7 @@
 			<form action="/upload" method="post" id="uploadForm" enctype="multipart/form-data">
 			<div class="modal-content">
 				<h4 onclick="document.getElementById('filesToUpload').click();" class="noselect">Upload to MaterialOS</h4>
-				<p onclick="document.getElementById('filesToUpload').click();" class="noselect">Input your full name into "Author" and add your files (.ai, .psd, .sketch, .svg, .xcf, .png). You can upload as many as you like, but unfortunately your system dosn't allow for cross-folder uploading. All files will be inputted in a pull request for you. By clicking "Agree &amp; Upload you are verifing that all uploaded work is yours and you acknowledge that your work will be lincensed under <a href="/license">our license</a>.</p>
+				<p onclick="document.getElementById('filesToUpload').click();" class="noselect">Input your full name into "Author" and add your files (.ai, .psd, .sketch, .svg, .xcf, .png). You can upload as many as you like, but unfortunately your system dosn't allow for cross-folder uploading. All files will be inputted in a pull request for you. By uploading here you are verifing that all uploaded work is yours and you acknowledge that your work will be lincensed under <a href="/license">our license</a>.</p>
 				<div class="row">
 					<div class="input-field col s6 m4">
 						<select required name="repo" id="repo">
@@ -45,7 +45,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<span class="modal-action modal-close waves-effect waves-green btn-flat" onclick="document.getElementById('uploadForm').submit();">Agree &amp; Upload</span>
+				<span class="modal-action modal-close waves-effect waves-green btn-flat" onclick="upload();">Upload</span>
 				<span class="file-field input-field"><span class="modal-action btn-flat waves-effect"><span>Pick Files</span><input type="file" name="filesToUpload[]" onchange="loadFile(event)" id="filesToUpload" multiple required/></span></span>
 			</div>
 		</div>

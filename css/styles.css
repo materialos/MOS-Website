@@ -111,6 +111,13 @@ html, body {
 input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
 	box-shadow: 0 2px 0 -1px #26a69a !important;
 }
+.progress {
+	position: fixed;
+	border-radius: 0;
+	margin: 0;
+	top: 0;
+	z-index: 1002;
+}
 
 /* MOS Logo */
 .logo-container {

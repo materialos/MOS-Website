@@ -32,17 +32,25 @@ function loadFile(event){
 // Suggest Author Functions
 function authorSuggest (value) {
 	toastDestroy();
+	changedSince = true; // Entered from change of input
 	authorSet = false;
 	newAuthorToast = false;
 	authors = "Alex Mueller (Lollydrop), Anas Khan, Brian Medina, Christopher Bravata, Corbin Crutchley (crutchcorn), Daniel Ciao (plusCubed), Daniel Hickman, Eduardo Pratti (KMZ Icons), Gabriel Zegarra (Gaigzean), Greg Ives (Grives), Jahir Fiquitiva & Corbin Crutchley (crutchcorn), Jireh Mark Morilla, Micheal Cook (Cookicons), Niko Pennanen, Oscar E, Patryk Goworowski, Sky Konig, Vukasin Andelkovic, Wayne Kosimoto & Corbin Crutchley (crutchcorn), Wayne Kosimoto, Zachary Pierson (zangent), createme";
 	valuear = value.split(" ");
 	sug = [];
+	sugged = [];
 	for (var i = valuear.length - 1; i >= 0; i--) {
-		authorregex = new RegExp(valuear[i].replace(/\(/, "\\(").replace(/\)/, "\\)"), "i");
-		authorregexmatch = new RegExp("(.*)(, |^)([\\s\\w\\(\\)]*" + valuear[i].replace(/\(/, "\\(").replace(/\)/, "\\)") + "[\\s\\w\\(\\)]*)(?!(?!,),)(.*)", "i");
-		if (authorregex.test(authors)) {
-			sug.push(authors.replace(authorregexmatch, "$3"));
-		}
+		if (! valuear[i] == "" || ! valuear[i] == " ") {
+			authorregex = new RegExp(valuear[i].replace(/\(/, "\\(").replace(/\)/, "\\)"), "i");
+			authorregexmatch = new RegExp("(.*)(, |^)([\\s\\w\\(\\)]*" + valuear[i].replace(/\(/, "\\(").replace(/\)/, "\\)") + "[\\s\\w\\(\\)]*)(?!(?!,),)(.*)", "i");
+			if (authorregex.test(authors)) {
+				sug.push(authors.replace(authorregexmatch, "$3"));
+			};
+		} else {
+			toastDestroy();
+			Materialize.toast('<span>Please Enter an Author</span>', 10000);
+			return;
+		};
 	};
 	matched = false;
 	for (var i = sug.length - 1; i >= 0; i--) {
@@ -50,23 +58,28 @@ function authorSuggest (value) {
 			// No Match for that Word
 		} else if (sug[i] == value) {
 			// Suggestion is the Same as Inputed
-			authorSet = true;
+			setAuthor(sug[i]); // Make sure capitalization is the same
 			matched = true;
-			toastDestroy();
 			return;
 		} else {
 			// Matched
 			matched = true;
-			Materialize.toast('<span onclick="setAuthor(\'' + sug[i] + '\');">Do you mean: ' + sug[i] + '</span>', 10000,'',function(){if (authorSet == false && newAuthorToast == false) {Materialize.toast('<span>You are creating a new author</span>', 10000);newAuthorToast = true;};});
+			changedSince = false; // New Toast or change
+			if (sugged.indexOf(sug[i])) {
+				sugged.push(sug[i]);
+				Materialize.toast('<span onclick="setAuthor(\'' + sug[i] + '\');">Do you mean: ' + sug[i] + '</span>', 10000,'',function(){if (authorSet == false && newAuthorToast == false && changedSince == false) {toastDestroy(); Materialize.toast('<span>You are creating a new author</span>', 10000); newAuthorToast = true;};});
+			};
 		};
 	};
 	if (matched == false) {
+		toastDestroy();
 		Materialize.toast('<span>You are creating a new author</span>', 10000);
 		newAuthorToast = true;
 	};
 }
 function setAuthor (author) {
 	document.getElementById('author').value = author;
+	changedSince = false; // New Toast or change
 	toastDestroy();
 	authorSet = true;
 }
@@ -115,6 +128,20 @@ function toastDestroy () {
 			}
 		});
 	};
+}
+
+// Progress Bar
+function progressBar () {
+	spinner = document.createElement("div");
+	spinner.className = "progress";
+	spinner.innerHTML = '<div class="indeterminate"></div>';
+	document.body.appendChild(spinner);
+}
+
+// Upload Function
+function upload () {
+	progressBar();
+	document.getElementById('uploadForm').submit();
 }
 
 /* Material Ease Animation (CSS and JS)
