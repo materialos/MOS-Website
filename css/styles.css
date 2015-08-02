@@ -69,6 +69,12 @@ html, body {
 	bottom: 24px;
 	right: 24px;
 }
+@media (max-width: 600px) {
+	.singlefab {
+		bottom: 16px;
+		right: 16px;
+	}
+}
 .container {
 	width: 85% !important;
 }
