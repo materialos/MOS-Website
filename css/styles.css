@@ -183,6 +183,9 @@ input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly
 .icons {
 	background: url('/img/largeshowcase-dark.png') no-repeat center center fixed;
 }
+.license {
+	background: url('/img/mountain.jpg') no-repeat center center fixed;
+}
 .mosparallax-clear {
 	height: 100%;
 	width: 100%;
