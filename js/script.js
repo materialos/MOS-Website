@@ -29,6 +29,13 @@ function loadFile(event){
 	};
 };
 
+// Referal Generator
+function refer() {
+	var repo = document.getElementById('repo').value;
+	var author = document.getElementById('author').value;
+	return encodeURI(document.URL + "?repo=" + repo + "&author=" + author);
+}
+
 // Suggest Author Functions
 function authorSuggest (value) {
 	toastDestroy();
