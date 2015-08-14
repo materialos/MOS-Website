@@ -76,10 +76,25 @@ body {
 	bottom: 24px;
 	right: 24px;
 }
+.upfab {
+	position: fixed;
+	bottom: 87.5px;
+	right: 24px;
+}
+.material-tooltip {
+	position: fixed;
+}
 @media (max-width: 600px) {
 	.singlefab {
 		bottom: 16px;
 		right: 16px;
+	}
+	.upfab {
+		bottom: 79.5px;
+		right: 16px;
+	}
+	.material-tooltip {
+		display: none !important;
 	}
 }
 .container {
